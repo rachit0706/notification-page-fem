@@ -1,0 +1,148 @@
+@use './functions' as *;
+@use './variables' as *;
+@use 'base';
+
+.notification-page {
+    width: 100%;
+    max-width: 40rem;
+    @include flexColumn;
+    gap: .6rem;
+    border-radius: .5rem;
+    background-color: $white;
+    padding: 1.5rem 1rem;
+
+    div {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: $very-dark-blue;
+    }
+
+}
+
+.notification-head {
+    @include flexRow;
+    justify-content: space-between;
+
+    span {
+        @include flexRow;
+        gap: .5rem;
+
+        .notification-count {
+            display: inline-block;
+            align-self: center;
+            border-radius: .2rem;
+            padding: .2rem .6rem;
+            font-weight: 800;
+            background-color: $blue;
+            color: $white;
+            font-size: .8rem;
+        }
+    }
+
+    .mark-all-read {
+        text-align: right;
+    }
+
+    .mark-all-read:hover {
+        cursor: pointer;
+    }
+}
+
+%not-info {
+    @include flexRow;
+    justify-content: flex-start;
+    gap: .7rem;
+    align-items: flex-start;
+}
+
+.notification {
+    border-radius: .5rem;
+    padding: .8rem;
+    @extend %not-info;
+    color: $dark-grayish-blue;
+    transition: background-color .5s ease;
+
+    :hover {
+        cursor: pointer;
+    }
+
+    .profile-pic,
+    .chess-pic {
+        height: 2.5rem;
+        width: 2.5rem;
+        align-self: flex-start;
+    }
+
+    .name {
+        margin-right: 2px;
+        color: $very-dark-blue;
+    }
+
+    .comment-on-pic {
+        @include flexRow;
+        justify-content: space-between;
+    }
+
+    .chess-club {
+        color: $dark-grayish-blue;
+    }
+
+    .chess-club,
+    .name {
+        font-weight: 800;
+        font-size: .9rem;
+    }
+
+    .time {
+        display: inline-block;
+        margin-top: .2rem;
+        color: $grayish-blue;
+        font-weight: 500;
+    }
+
+    .name:hover, .chess-club:hover, strong:hover {
+        color: $blue;
+    }
+}
+
+.unread {
+    background-color: $very-light-grayish-blue;
+
+    p::after {
+        content: '';
+        display: inline-block;
+        margin-left: .2rem;
+        height: .5rem;
+        width: .5rem;
+        background-color: $red;
+        border-radius: 50%;
+    }
+
+}
+
+.with-private {
+    @include flexColumn;
+    gap: .6rem;
+
+    div:not([class="notification-info"]) {
+        @extend %not-info;
+        width: 100%;
+    }
+
+    .private-message {
+        width: 90%;
+        align-self: flex-end;
+        padding: .8rem;
+        border-radius: .4rem;
+        border: 1px solid $dark-grayish-blue;
+    }
+    
+    .private-message:hover {
+        background-color: $light-grayish-blue-1;
+        border-color: $light-grayish-blue-1;
+    }
+}

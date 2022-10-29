@@ -1,0 +1,18 @@
+@mixin placeCenter {
+    display: grid;
+    place-items: center;
+}
+
+@mixin flexRow {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@mixin flexColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+

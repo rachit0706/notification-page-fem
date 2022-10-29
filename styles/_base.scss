@@ -1,0 +1,37 @@
+@use './functions' as *;
+@use './variables' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // border: 1px solid black;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    min-height: 100vh;
+    @include placeCenter;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 500;
+    font-size: .9rem;
+    background-color: $very-light-grayish-blue;
+}
+
+main {
+    width: 100%;
+    @include placeCenter;
+}
+
+.attribution {
+    font-size: 1rem;
+    text-align: center;
+    // margin-top: 1rem;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
