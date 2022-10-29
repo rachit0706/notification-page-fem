@@ -26,10 +26,13 @@
 .notification-head {
     @include flexRow;
     justify-content: space-between;
+    margin-bottom: 1rem;
 
-    span {
+    div {
         @include flexRow;
         gap: .5rem;
+        justify-content: flex-start;
+        width: 50%;
 
         .notification-count {
             display: inline-block;
