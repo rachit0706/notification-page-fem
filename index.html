@@ -28,7 +28,8 @@
         <img src="./assets/images/avatar-mark-webber.webp" alt="" class="profile-pic">
         <div class="notification-info">
           <p>
-            <span class="name">Mark Webber</span> reacted to your recent post <strong>My first tournament today!</strong>
+            <span class="name">Mark Webber</span> reacted to your recent post <strong>My first tournament
+              today!</strong>
           </p>
           <span class="time">1m ago</span>
         </div>
@@ -83,7 +84,8 @@
         <img src="./assets/images/avatar-nathan-peterson.webp" alt="" class="profile-pic">
         <div class="notification-info">
           <p>
-            <span class="name">Nathan Peterson</span> reacted to your recent post <strong>5 end-game strategies to increase your
+            <span class="name">Nathan Peterson</span> reacted to your recent post <strong>5 end-game strategies to
+              increase your
               win rate</strong>
           </p>
           <span class="time">2 weeks ago</span>
@@ -111,29 +113,38 @@
     const notificationBubble = document.querySelector('.notification-count');
     const markAllRead = document.querySelector('.mark-all-read');
 
-    notifications.addEventListener('click', function(e) {
+    notifications.addEventListener('click', function (e) {
       // console.log(e.target.classList);
       // console.log(e.target.parentElement.classList.value.includes("unread"));
 
-      if(e.target.parentElement.classList.value.includes("unread")) {
+      if (e.target.parentElement.classList.value.includes("unread")) {
         e.target.parentElement.classList.remove("unread");
         notificationCount--;
         notificationBubble.textContent = notificationCount;
       }
 
+      if (notificationCount === 0) {
+        console.log(notificationCount);
+        markAllRead.style.display = "none";
+      }
+
     });
 
-    markAllRead.addEventListener('click', function() {
-      for(child of notifications.children) {
+
+
+    markAllRead.addEventListener('click', function () {
+      for (child of notifications.children) {
         // console.log(child.classList.value);
-        if(child.classList.value.includes('unread')) {
+        if (child.classList.value.includes('unread')) {
           child.classList.remove('unread');
           notificationCount--;
         }
       }
 
       notificationBubble.textContent = notificationCount;
-    })
+      markAllRead.style.display = "none";
+    });
   </script>
 </body>
+
 </html>
